@@ -72,10 +72,27 @@ p
   overflow: hidden;
   float: left;
 }
+.body_div {
+    width: 730px;
+    height: 1500px;
+    display: block;
+}
 
 #imagen1 {
 	width: 300px;
 	height: 200px;
+}
+
+a {
+  color: blue;
+}
+a:hover {
+  text-decoration: none; color: red;
+}
+
+a:active {
+  font-family: Verdana;
+  color: blue;
 }
 
 table a {
