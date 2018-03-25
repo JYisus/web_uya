@@ -12,7 +12,6 @@ body
   overflow: hidden;
 }
 
-
 .nav ul {
   list-style: none;
   float: left;
@@ -58,6 +57,13 @@ body
 
   overflow: hidden;
   float: left;
+}
+
+p
+{
+  padding: 10px;
+    position: relative;
+    top: 0.5em;
 }
 .central-box
 {
