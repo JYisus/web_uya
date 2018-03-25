@@ -1,1 +1,83 @@
+body
+{
+    font-size: 1.5em;
+    font-family: Arial;
+    color:black;
+}
 
+.nav{
+  width: 770px;
+  height: 100px;
+  background-color: #ccc;
+  overflow: hidden;
+}
+
+.nav ul {
+  list-style: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+  #background-color: #f1f1f1;
+
+}
+
+.nav li {
+    display: block;
+    #Los elementos del menú deben tener un relleno de 0.3em y un margen inferior de 0.7em.
+    padding: 0.3em;
+    margin-bottom: 0.7em;
+    ####
+    color: #000;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: -4px;
+    line-height: 80px;
+    height: 80px;
+    weight: 100px;
+}
+.nav a{
+    display: block;
+    padding: 10px 16px;
+    color: #000;
+    text-decoration: none;
+}
+/*.nav li:hover {
+    background-color: #555;
+    color: white;
+}*/
+
+.nav a:hover {
+    background-color: #555;
+    color: white;
+}
+.side-box
+{
+  width: 200px;
+  height: 1500px;
+
+  overflow: hidden;
+  float: left;
+}
+
+p
+{
+  padding: 10px;
+    position: relative;
+    top: 0.5em;
+}
+.central-box
+{
+  width: 330px;
+  height: 1500px;
+  overflow: hidden;
+  float: left;
+}
+
+#imagen1 {
+	width: 300px;
+	height: 200px;
+}
+
+table a {
+	color: green;
+}
