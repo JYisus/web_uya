@@ -51,3 +51,11 @@ body
     background-color: #555;
     color: white;
 }
+.side-box
+{
+  width: 200px;
+  height: 1500px;
+
+  overflow: hidden;
+  float: left;
+}
