@@ -59,3 +59,19 @@ body
   overflow: hidden;
   float: left;
 }
+.central-box
+{
+  width: 330px;
+  height: 1500px;
+  overflow: hidden;
+  float: left;
+}
+
+#imagen1 {
+	width: 300px;
+	height: 200px;
+}
+
+table a {
+	color: green;
+}
