@@ -81,3 +81,10 @@ p
 table a {
 	color: green;
 }
+
+footer {
+  width: 770px;
+  height: 100px;
+  background-color: #ccc;
+  float:left;
+}
