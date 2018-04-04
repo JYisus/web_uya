@@ -1,0 +1,30 @@
+body {
+	background-image: url("../images/background.jpg");
+	background-repeat: no-repeat;
+}
+
+.p-text {
+	font-size: 16px;
+}
+.info-card {
+	position: relative;
+	margin: 0.5rem 1rem 1rem 0;
+}
+
+.imagen-card {
+	padding: 0.3rem;
+}
+
+#login {
+	position: relative;
+  	margin: 0.5rem 1rem 1rem 0;
+  	#background-color: #fff;
+  	-webkit-transition: -webkit-box-shadow .25s;
+  	transition: -webkit-box-shadow .25s;
+  	transition: box-shadow .25s;
+  	transition: box-shadow .25s, -webkit-box-shadow .25s;
+  	border-radius: 2px;
+	background-color: rgba(255,255,255,1);
+	padding: 10px;
+	color: black;
+}
