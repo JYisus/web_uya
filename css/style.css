@@ -9,6 +9,7 @@ body {
 .info-card {
 	position: relative;
 	margin: 0.5rem 1rem 1rem 0;
+	background-color: rgba(255,255,255,0.8);
 }
 
 .imagen-card {
