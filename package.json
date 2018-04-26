@@ -16,7 +16,7 @@
     "url": "https://github.com/alu0100976731/web_uya/issues"
   },
   "dependencies": {
-    "express": "5.6.0"
-},
+    "express": "4.16.3"
+  },
   "homepage": "https://github.com/alu0100976731/web_uya#readme"
 }
