@@ -88,3 +88,11 @@ footer {
   background-color: #ccc;
   float:left;
 }
+
+.etiquetas-form {
+  color: black;
+}
+
+::placeholder {
+  color: grey;
+}

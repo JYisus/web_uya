@@ -29,3 +29,11 @@ body {
 	padding: 10px;
 	color: black;
 }
+
+label {
+	color: black;
+}
+
+::placeholder {
+  color: #222;
+}
