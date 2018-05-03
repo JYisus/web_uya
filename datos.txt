@@ -1,1 +1,1 @@
-[{"nid":1,"name":"qwe","surname":"ASDF","email":"asdfasdf@asdf","username":"asdf","password":"sdf"},{"nid":2,"name":"qwe","surname":"ASDF","email":"asdfasdf@asdf","username":"asdf","password":"2456"}]
+[{"nid":1,"name":"qwe","surname":"ASDF","email":"asdfasdf@asdf","username":"asdf","password":"sdf"},{"nid":2,"name":"qwe","surname":"ASDF","email":"asdfasdf@asdf","username":"asdf","password":"2456"},{"nid":3,"name":"abc","surname":"def","email":"asdfasdf@asdf","username":"asdf","password":"123"}]

@@ -7,6 +7,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // soporte para bodies codif
 
 const port = process.env.PORT || 3000
 
+var logged = 0;
+
 app.get('/',function(req,res){
 	res.sendfile(__dirname + '/public/index.html');
 });
@@ -22,6 +24,28 @@ function maximo(parsed) {
 	}
 	return maximo;
 }
+app.post('/login',function(req,res){
+	var datos = fs.readFileSync('datos.txt','utf-8');
+	var parsed = JSON.parse(datos);
+	console.log(req.body);
+	var length = Object.keys(parsed).length;
+	for (var i = 0; i < length; i++) {
+		if(parsed[i]["usuario"] == req.params.username)
+		{
+			if(parsed[i]["password"] == req.params.password)
+			{
+				res.sendfile(__dirname + '/public/index_logged.html');
+				return ;
+			}
+			else {
+				res.sendfile(__dirname + '/public/login.html');
+			}
+			break;
+		}
+	}
+	res.sendfile(__dirname + '/public/login.html');
+
+});
 
 app.post('/registrarse',function(req,res){
 	var datos = fs.readFileSync('datos.txt','utf-8');
@@ -43,7 +67,8 @@ app.post('/registrarse',function(req,res){
   		if (err) throw err;
   		console.log('Replaced!');
 	});
-	res.sendfile(__dirname + '/public/index.html');
+	logged = 1;
+	res.sendfile(__dirname + '/public/index_logged.html');
 });
 //funcion para css,js,imagenes...
 app.use(express.static("public"));
