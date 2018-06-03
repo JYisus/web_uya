@@ -39,6 +39,7 @@ app.post('/login',function(req,res){
 			}
 			else {
 				res.sendfile(__dirname + '/public/login.html');
+				return ;
 			}
 			break;
 		}
