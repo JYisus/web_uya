@@ -37,8 +37,7 @@ app.get('/',function(req,res){
 function maximo() {
 	db.any('select id from usuario')
 	.then(function(data){
-		console.log(data);
-		return parseInt(data[data.length-1])+1;
+		return parseInt(data[data.length-1].id)+1;
 	})
 	.catch(function(err){
 		return next(err);
