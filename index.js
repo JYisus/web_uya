@@ -100,7 +100,7 @@ app.get('/usuario/:id',(req,res,next)=>{
 
 app.post('/usuario',(req,res,next)=>{
 	let id = maximo();
-	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + `values(${name},${surname},${username},${password},${email},$1)`,id,req.body)
+	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values(${name},${surname},${username},${password},${email},$1)',id,req.body)
 	.then(function(){
 		res.status(200)
 		.json({
