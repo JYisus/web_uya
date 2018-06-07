@@ -34,16 +34,14 @@ app.get('/',function(req,res){
 	res.sendFile(__dirname + '/public/index.html');
 });
 
-function maximo(parsed) {
-	var length = Object.keys(parsed).length;
-	var maximo = 0;
-	for (var i = 0; i < length; i++) {
-		if(parsed[i]["nid"] > maximo)
-		{
-			maximo = parsed[i]["nid"];
-		}
-	}
-	return maximo;
+function maximo() {
+	db.any('select id from usuario')
+	.then(function(data){
+		return parseInt(data[data.length-1])+1
+	})
+	.catch(function(err){
+		return next(err);
+	})
 }
 app.post('/login',function(req,res){
 	var datos = fs.readFileSync('datos.txt','utf-8');
@@ -70,7 +68,7 @@ app.post('/login',function(req,res){
 });
 
 app.get('/all', (req,res,next)=>{
-  db.any('select * from usuario')
+  db.any('select nombre from usuario')
     .then(function(data){
     res.status(200)
       .json({
@@ -83,6 +81,35 @@ app.get('/all', (req,res,next)=>{
     return next(err);
   });
 });
+
+app.get('/usuario/:id',(req,res,next)=>{
+	var nombreUsuario = parseInt(req.params.id);
+	db.any('select * from usuario where nombre=$1',nombreUsuario)
+    .then(function(data){
+    res.status(200)
+      .json({
+        status: 'success',
+        data: data,
+        message: 'Obtenidos los datos del usuario'
+      });
+  })
+  .catch(function(err){
+    return next(err);
+  });
+});
+
+app.post('/usuario',(req,res,next)=>{
+	let id = maximo();
+	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + `values(${name},${surname},${username},${password},${email},$1)`,id,req.body)
+	.then(function(){
+		res.status(200)
+		.json({
+			status: 'success',
+			message: 'Usuario creado'
+		});
+	});
+});
+
 
 /*
 app.post('/registrarse',function(req,res){
