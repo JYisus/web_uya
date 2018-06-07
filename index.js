@@ -68,7 +68,7 @@ app.post('/login',function(req,res){
 });
 
 app.get('/all', (req,res,next)=>{
-  db.any('select nombre from usuario')
+  db.any('select username from usuario')
     .then(function(data){
     res.status(200)
       .json({
@@ -100,7 +100,7 @@ app.get('/usuario/:id',(req,res,next)=>{
 
 app.post('/usuario',(req,res,next)=>{
 	let id = maximo();
-	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values(${name},${surname},${username},${password},${email},$1)',id,req.body)
+	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values($1,$2,$3,$4,$5,$6)',req.body.name,req.body.surname,req.body.password,req.body.email,id)
 	.then(function(){
 		res.status(200)
 		.json({
