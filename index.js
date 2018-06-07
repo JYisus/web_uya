@@ -99,8 +99,10 @@ app.get('/usuario/:id',(req,res,next)=>{
 });
 
 app.post('/usuario',(req,res,next)=>{
-	req.body.id = maximo();
-	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values(${name},${surname},${username},${password},${email},${id})',req.body)
+	nuevoUsuario = req.body;
+	nuevoUsuario.id = maximo();
+	console.log(nuevoUsuario.id);
+	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values(${name},${surname},${username},${password},${email},${id})',nuevoUsuario)
 	.then(function(){
 		res.status(200)
 		.json({
