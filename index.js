@@ -83,8 +83,8 @@ app.get('/all', (req,res,next)=>{
 });
 
 app.get('/usuario/:id',(req,res,next)=>{
-	var nombreUsuario = parseInt(req.params.id);
-	db.any('select * from usuario where nombre=$1',nombreUsuario)
+	var nombreUsuario = req.params.id;
+	db.any('select * from usuario where username=$1',nombreUsuario)
     .then(function(data){
     res.status(200)
       .json({
