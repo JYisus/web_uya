@@ -1,17 +1,25 @@
-var express=require('express');
-var app=express();
-var fs = require('fs');
-var bodyParser = require('body-parser');
+'use strict'
+//var express=require('express');
+//var app=express();
+//var bodyParser = require('body-parser');
 var promise = require('bluebird');
 var options = { promiseLib:promise };
-var pgp = require('pg-promise')(options);
-
-var connectionString = process.env.DATABASE_URL || 'postgres://tlpnsonspbxpwp:2fa19f6c093e7ae269dde9370e094234da07a79ceee0f2409109e9527d048c66@ec2-54-228-181-43.eu-west-1.compute.amazonaws.com:5432/d236h6ich8audp';
-var db = pgp(connectionString);
-app.use(bodyParser.json()); // soporte para bodies codificados en jsonsupport
-app.use(bodyParser.urlencoded({ extended: true })); // soporte para bodies codificados
-
-const port = process.env.PORT || 3000
+/*var pgp = require('pg-promise')(options);
+const cn = {
+    host: 'localhost',
+    port: 5432,
+    database: 'yisus',
+    user: 'yisus',
+    password: 'merioentucara'
+};
+var connectionString = process.env.DATABASE_URL || cn;
+var db = pgp(connectionString);*/
+const bcrypt = require('bcrypt-nodejs');
+//app.use(bodyParser.json()); // soporte para bodies codificados en jsonsupport
+//app.use(bodyParser.urlencoded({ extended: true })); // soporte para bodies codificados
+const app = require('./app');
+const userCtrl = require('./controllers/users');
+const port = process.env.PORT || 3000;
 
 /*const { Client } = require('pg');
 const client = new Client({
@@ -30,20 +38,16 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
 
 var logged = 0;
 
-app.get('/',function(req,res){
+app.get('/',function(req,res,next){
 	res.sendFile(__dirname + '/public/index.html');
 });
 
-function maximo() {
-	db.any('select id from usuario')
-	.then(function(data){
-		return parseInt(data[data.length-1].id)+1;
-	})
-	.catch(function(err){
-		return next(err);
-	})
-}
-app.post('/login',function(req,res){
+app.get('/all', userCtrl.getUsers);
+app.get('/usuario/:id', userCtrl.getUser);
+app.post('/usuario', userCtrl.createUser);
+
+
+app.post('/login',function(req,res,next){
 	var datos = fs.readFileSync('datos.txt','utf-8');
 	var parsed = JSON.parse(datos);
 	console.log(req.body);
@@ -66,7 +70,7 @@ app.post('/login',function(req,res){
 	res.sendfile(__dirname + '/public/login.html');
 
 });
-
+/*
 app.get('/all', (req,res,next)=>{
   db.any('select username from usuario')
     .then(function(data){
@@ -100,9 +104,9 @@ app.get('/usuario/:id',(req,res,next)=>{
 
 app.post('/usuario',(req,res,next)=>{
 	nuevoUsuario = req.body;
-	nuevoUsuario.id = maximo();
-	console.log(nuevoUsuario.id);
-	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values(${name},${surname},${username},${password},${email},${id})',nuevoUsuario)
+
+	console.log(nuevoUsuario);
+	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values(${name},${surname},${username},${password},${email}',nuevoUsuario)
 	.then(function(){
 		res.status(200)
 		.json({
@@ -111,7 +115,7 @@ app.post('/usuario',(req,res,next)=>{
 		});
 	});
 });
-
+*/
 
 /*
 app.post('/registrarse',function(req,res){
@@ -166,7 +170,7 @@ app.post('/registrarse',function(req,res){
 	res.sendfile(__dirname + '/public/index_logged.html');
 });*/
 //funcion para css,js,imagenes...
-app.use(express.static("public"));
+//app.use(express.static("public"));
 
 app.listen(port);
 
