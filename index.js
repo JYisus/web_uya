@@ -20,7 +20,7 @@ const bcrypt = require('bcrypt-nodejs');
 const app = require('./app');
 const userCtrl = require('./controllers/users');
 const port = process.env.PORT || 3000;
-
+const auth = require('./middlewares/auth.js');
 /*const { Client } = require('pg');
 const client = new Client({
   connectionString: process.env.DATABASE_URL || 'postgres://tlpnsonspbxpwp:2fa19f6c093e7ae269dde9370e094234da07a79ceee0f2409109e9527d048c66@ec2-54-228-181-43.eu-west-1.compute.amazonaws.com:5432/d236h6ich8audp',
@@ -42,7 +42,7 @@ app.get('/',function(req,res,next){
 	res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/all', userCtrl.getUsers);
+app.get('/all', auth.isAuth,userCtrl.getUsers);
 app.get('/usuario/:id', userCtrl.getUser);
 app.post('/usuario', userCtrl.createUser);
 

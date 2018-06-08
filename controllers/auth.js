@@ -11,6 +11,9 @@ const cn = {
 };
 var connectionString = process.env.DATABASE_URL || cn;
 var db = pgp(connectionString);
+
+const service = require('../services/token.js');
+
 function getUsers(req,res,next) {
   db.any('select username from usuario')
     .then(function(data){
@@ -38,8 +41,7 @@ function singUp(req,res,next) {
 	});
 }
 
-function singUn(req,res,next) {
-
+function singUp(req,res,next) {
   db.oneOrNone('select max(id) from usuario')
   .then(function(data){
     var nuevo_id = data.id;
@@ -50,7 +52,7 @@ function singUn(req,res,next) {
 
 	db.none('insert into usuario(nombre,apellido,username,password,email)' + 'values(${name},${surname},${username},${password},${email})',nuevoUsuario)
 	.then(function(){
-		res.status(200)
+		res.status(200).send({tol})
 		.json({
 			status: 'success',
 			message: 'Usuario creado'
