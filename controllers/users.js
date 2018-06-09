@@ -35,7 +35,7 @@ Iterator.prototype = {
       this.reset();
       return this.next();
     },
-    next: fucntion(){
+    next: function(){
       return this.items[this.index++];
     },
     hasNext: function() {
