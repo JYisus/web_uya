@@ -11,6 +11,73 @@ const cn = {
 };
 var connectionString = process.env.DATABASE_URL || cn;
 var db = pgp(connectionString);
+
+var Usuario = function(nombre,apellido,username,email) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.username = username;
+    this.email = email;
+  }
+
+
+var DecoratedUsuario = function(user, role) {
+   this.user = user;
+   this.role = role;
+}
+
+var Iterator = function(items) {
+  this.index = 0;
+  this.items = items;
+}
+
+Iterator.prototype = {
+    first: function() {
+      this.reset();
+      return this.next();
+    },
+    next: fucntion(){
+      return this.items[this.index++];
+    },
+    hasNext: function() {
+      this.index = 0;
+    },
+    reset: function() {
+      this.index = 0;
+    },
+    each: function(callback) {
+      for (var item = this.first(); this.hasNext(); item = this.next()){
+          callback(item);
+      }
+    }
+}
+
+function run(items) {
+    var iter = new Iterator(items);
+    for (var item = iter.first(); iter.hasNext(); item = iter.next()) {
+        log.add(item);
+    }
+
+    log.show();
+}
+
+var Singleton = (function () {
+    var instance;
+
+    function createInstance() {
+        var object = new Usuario();
+        return object;
+    }
+
+    return {
+        getInstance: function () {
+            if (!instance) {
+                instance = createInstance();
+            }
+            return instance;
+        }
+    };
+})();
+
 function getUsers(req,res,next) {
   db.any('select username from usuario')
     .then(function(data){

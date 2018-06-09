@@ -23,8 +23,8 @@
             <li><a href="#">Músicos</a></li>
             <li><a href="#">Grupos</a></li>
             <li><a href="#">Otros</a></li>
-            <li><a href="./login.html">Login</a></li>
-            <li><a href="#">Regístrate</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/registro">Regístrate</a></li>
           </ul>
         </div>
       </nav>
@@ -35,6 +35,7 @@
          		<div class="card-content center-align">
             		<span class="card-title">Regístrate en MusicArt</span>
          		</div>
+<<<<<<< HEAD
                <form method="POST" action="/usuario">
                <div class="card-content">
                   <div class="form-field">
@@ -62,6 +63,35 @@
                   </div><br>
                   <p>¿Ya tienes cuenta? <a href="./login.html">Logueate</a></p>
                </div>
+=======
+               <form method="POST" action="/singup">
+                 <div class="card-content">
+                    <div class="form-field">
+                       <label for="name">Nombre</label>
+                       <input type="text" name="name" id="name" placeholder="Jimmy" required>
+                    </div><br>
+                    <div class="form-field">
+                       <label for="surname">Apellidos</label>
+                       <input type="text" name="surname" id="surname" placeholder="Hendrix" required>
+                    </div><br>
+                    <div class="form-field">
+                       <label for="email">Correo Eléctronico</label>
+                       <input type="email" name="email" id="email" placeholder="jimmyhendrix69@gmail.com" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required> 
+                    </div><br>
+                    <div class="form-field">
+                       <label for="username">Nombre de usuario</label>
+                       <input type="text" name="username" id="username" placeholder="theJimmyHendrix" required>
+                    </div><br>
+                    <div class="form-field">
+                       <label for="password">Contraseña</label>
+                       <input type="password" name="password" id="password" required>
+                    </div><br>
+                    <div class="form-field">
+                       <button type="submit" class="btn-large blue-grey darken-4" style="width:100%">Registrarse</button>
+                    </div><br>
+                    <p>¿Ya tienes cuenta? <a href="./login.html">Logueate</a></p>
+                 </div>
+>>>>>>> Incluidos Patrones de Diseño
                </form>
       		</div>
    		</div>

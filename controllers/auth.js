@@ -14,54 +14,48 @@ var db = pgp(connectionString);
 
 const service = require('../services/token.js');
 
-function getUsers(req,res,next) {
-  db.any('select username from usuario')
-    .then(function(data){
-    res.status(200)
-      .json({
-        status: 'success',
-        data: data,
-        message: 'Obtenidos todos los datos'
-      });
+function singIn(req,res,next) {
+  db.oneOrNone('select * from usuario where username=${username} and password=${password}',req.body)
+  .then((data)=>{
+    if(data!=null){
+      req.user = data;
+      res.status(200).send({
+        message: 'Te has logueado correctamente',
+        token: service.createToken(data)
+      })
+    }
   })
-  .catch(function(err){
-    return next(err);
-  });
-}
 
-function singUp(req,res,next) {
-  var nuevoUsuario = req.body;
-	db.none('insert into usuario(nombre,apellido,username,password,email)' + 'values(${name},${surname},${username},${password},${email})',nuevoUsuario)
-	.then(function(){
-		res.status(200)
-		.json({
-			status: 'success',
-			message: 'Usuario creado'
-		});
-	});
 }
 
 function singUp(req,res,next) {
   db.oneOrNone('select max(id) from usuario')
   .then(function(data){
-    var nuevo_id = data.id;
-    });
-  });
-  console.log(nuevo_id);
-  var nuevoUsuario = req.body;
+    if(data!=null){
+      console.log(data.max);
+      var nuevo_id = parseInt(data.max);
+    }
+    else
+      var nuevo_id = 0;
 
-	db.none('insert into usuario(nombre,apellido,username,password,email)' + 'values(${name},${surname},${username},${password},${email})',nuevoUsuario)
-	.then(function(){
-		res.status(200).send({tol})
-		.json({
-			status: 'success',
-			message: 'Usuario creado'
-		});
-	});
+      console.log(nuevo_id);
+      var nuevoUsuario = req.body;
+      nuevoUsuario.id = nuevo_id+1
+    	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values(${name},${surname},${username},${password},${email},${id})',nuevoUsuario)
+    	.then(function(){
+    		res.status(200)
+    		.json({
+    			status: 'success',
+    			message: 'Usuario creado'
+    		});
+    	});
+    })
+    .catch(function(err){
+      return next(err);
+    });
 }
 
 module.exports = {
-  getUsers,
-  getUser,
-  createUser
+  singIn,
+  singUp
 }
