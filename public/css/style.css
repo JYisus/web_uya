@@ -1,15 +1,47 @@
 body {
-	background-image: url("../images/background.jpg");
-	background-repeat: no-repeat;
+	background: #eee;
+	#background-image: url("../images/background.jpg");
+	#background-repeat: no-repeat;
 }
+
+.carousel .carousel-item {
+width:300px !important;
+}
+
+html, body {
+    height: 100%;
+  }
+
+	.pin-top {
+    position: relative;
+  }
+
+  // Class for when element is below threshold
+  .pin-bottom {
+    position: relative;
+  }
+
+  // Class for when element is pinned
+  .pinned {
+    position: fixed !important;
+  }
 
 .p-text {
 	font-size: 16px;
 }
+
+.parrafo-texto {
+	font-size: 16px;
+}
+
 .info-card {
 	position: relative;
 	margin: 0.5rem 1rem 1rem 0;
 	background-color: rgba(255,255,255,0.8);
+}
+
+h1 {
+	font-size: 30px;
 }
 
 .imagen-card {
