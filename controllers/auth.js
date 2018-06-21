@@ -24,6 +24,12 @@ function singIn(req,res,next) {
         token: service.createToken(data)
       })
     }
+    else{
+      res.send({
+        message: 'Nombre o contraseña no válido',
+        codigo: 1
+      })
+    }
   })
 
 }

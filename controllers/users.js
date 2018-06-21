@@ -119,7 +119,6 @@ function createUser(req,res,next) {
     else
       var nuevo_id = 0;
 
-      console.log(nuevo_id);
       var nuevoUsuario = req.body;
       nuevoUsuario.id = nuevo_id+1
     	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values(${name},${surname},${username},${password},${email},${id})',nuevoUsuario)
@@ -137,8 +136,24 @@ function createUser(req,res,next) {
 
 }
 
+function getMusicos(req,res,next) {
+  db.any('select * from musicos')
+    .then(function(data){
+    res.status(200)
+      .json({
+        status: 'success',
+        data: data,
+        message: 'Obtenidos todos los datos'
+      });
+  })
+  .catch(function(err){
+    return next(err);
+  });
+}
+
 module.exports = {
   getUsers,
   getUser,
-  createUser
+  createUser,
+  getMusicos
 }

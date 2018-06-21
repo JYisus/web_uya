@@ -14,5 +14,8 @@ app.get('/login',(req,res,next)=>{
 app.get('/registro',(req,res,next)=>{
 	res.sendFile(__dirname +'/public/registro.html');
 })
+app.get('/musicos',(req,res,next)=>{
+	res.sendFile(__dirname +'/public/musicos.html');
+})
 
 module.exports = app;

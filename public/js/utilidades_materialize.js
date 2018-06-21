@@ -3,5 +3,5 @@ $(document).ready(function(){
   $('.scrollspy').scrollSpy();
   $('.pushpin').pushpin();
   $('.carousel').carousel();
-  
+  $('.collapsible').collapsible();
 });
