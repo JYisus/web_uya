@@ -4,4 +4,5 @@ $(document).ready(function(){
   $('.pushpin').pushpin();
   $('.carousel').carousel();
   $('.collapsible').collapsible();
+  $('textarea#anuncio').characterCounter();
 });
