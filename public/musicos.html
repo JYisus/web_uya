@@ -18,33 +18,12 @@
 
 <body>
   <header>
-    <!--Barra de navegación para ordenadores-->
-    <nav class="grey darken-4" >
-      <div class="nav-wrapper container grey darken-4">
-        <a href="/" class="brand-logo">MusicArt</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-          <li><a class="black" href="/musicos">Músicos</a></li>
-          <li><a href="#">Grupos</a></li>
-          <li><a href="#">Eventos</a></li>
-          <li><a href="/login">Iniciar sesión</a></li>
-          <li><a href="/registro">Registrarse</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!--Barra de navegación resolución pequeña-->
-    <ul class="sidenav" id="mobile-demo">
-      <li><a href="/musicos">Músicos</a></li>
-      <li><a href="#">Grupos</a></li>
-      <li><a href="#">Eventos</a></li>
-      <li><a href="/login">Iniciar sesión</a></li>
-      <li><a href="/registro">Registrarse</a></li>
-    </ul>
+
   </header>
   <main>
-    <br>
-    <div class="row center">
-      <a href='/musicos/anunciar' class="waves-effect waves-light btn amber darken-2">Crear anuncio</a>
+    <div id="zona-superior" class="container center-align">
+      <h1>Músicos</h1>
+      <p class="caption center-align parrafo-texto">Descubre los músicos que se están anunciando en MusicArt o crea un anuncio tú mismo.<br>¿A qué esperas?</p>
     </div>
     <div class=container>
       <ul id="anuncios_musicos" class="collapsible">
@@ -82,7 +61,7 @@
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script type="text/javascript" src="js/utilidades_materialize.js"></script>
   <script type="text/javascript" src="./js/musicos_ajax.js"></script>
-
+  <script type="text/javascript" src="./js/logout.js"></script>
 
 </body>
 </html>
