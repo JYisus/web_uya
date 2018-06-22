@@ -11,6 +11,9 @@ app.use('/',api);
 app.get('/login',(req,res,next)=>{
 	res.sendFile(__dirname +'/public/login.html');
 })
+app.get('/anunciarMusico',(req,res,next)=>{
+	res.sendFile(__dirname +'/public/crear_anuncio_musicos.html');
+})
 app.get('/registro',(req,res,next)=>{
 	res.sendFile(__dirname +'/public/registro.html');
 })

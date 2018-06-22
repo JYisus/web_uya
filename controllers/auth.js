@@ -61,7 +61,34 @@ function singUp(req,res,next) {
     });
 }
 
+function crearMusico(req,res,next) {
+  db.oneOrNone('select max(id) from musicos')
+    .then(function(data){
+      if(data!=null){
+        console.log(data.max);
+        var nuevo_id = parseInt(data.max);
+      }
+      else{
+        var nuevo_id = 0;
+      }
+      var nuevoAnuncio = req.body;
+      nuevoAnuncio.id = nuevo_id+1
+      db.none('insert into musicos(username,anuncio,lugar,instrumento,id)' + 'values(${username},${anuncio},${lugar},${instrumento},${id})',nuevoAnuncio)
+      .then(function(){
+        res.status(200)
+        .json({
+          status: 'success',
+          message: 'Usuario creado'
+        });
+      });
+    })
+    .catch(function(err){
+      return next(err);
+    });
+}
+
 module.exports = {
   singIn,
-  singUp
+  singUp,
+  crearMusico
 }

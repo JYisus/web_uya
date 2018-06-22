@@ -10,9 +10,11 @@ api.get('/',function(req,res,next){
 	res.render('public/index.html')
 });
 api.get('/all',auth,userCtrl.getUsers);
-api.get('/usuario/:id', userCtrl.getUser);
+//api.get('/usuario/:id', userCtrl.getUser);
+api.post('/usuario', userCtrl.getUser);
 api.post('/singin', authCtrl.singIn);
 api.post('/singup', authCtrl.singUp);
+api.post('/musicos', authCtrl.crearMusico);
 api.get('/musicos/all',userCtrl.getMusicos);
 
 module.exports = api;

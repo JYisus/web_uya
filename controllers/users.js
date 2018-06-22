@@ -94,15 +94,25 @@ function getUsers(req,res,next) {
 }
 
 function getUser(req,res,next) {
-  var nombreUsuario = req.params.id;
-	db.any('select * from usuario where username=$1',nombreUsuario)
+  var nombreUsuario = req.body.username;
+  console.log(nombreUsuario)
+	db.oneOrNone('select * from usuario where username = $1',nombreUsuario)
     .then(function(data){
-    res.status(200)
+    if(data==null) {
+      res.status(200)
+      .json({
+        status: 'error',
+        data: null,
+        message: 'Usuario no encontrado'
+      })
+    }
+    else
+    {res.status(200)
       .json({
         status: 'success',
-        data: data,
+        data: data.username,
         message: 'Obtenidos los datos del usuario'
-      });
+      });}
     })
     .catch(function(err){
       return next(err);

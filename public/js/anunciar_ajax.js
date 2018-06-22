@@ -46,16 +46,10 @@ $("document").ready(function() {
     $("#anunciar-musico").submit(function(event){
       event.preventDefault();
       let data = $('#anunciar-musico').serializeArray()
-      console.log(data)
       let formData = { username:localStorage.username, instrumento:$("#instrumento").val(), lugar:$("#lugar").val(), anuncio:$("#anuncio").val()}
       console.log(formData)
       $.post('/musicos',formData,data=>{
-        console.log("akkjdsafkjndfkj")
-          $('main').prepend(`
-            <div class="row center-align">
-              <p class="green">El El anuncio ha sido creado con exito.</p>
-            </div>
-            `)
+          document.location.href = '/musicos';
       });
     });
 });

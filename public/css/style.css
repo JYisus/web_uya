@@ -7,7 +7,9 @@ body {
 .mensaje-error {
 		color: red;
 }
-
+.mensaje-valido {
+	color: green;
+}
 .title-element {
 	font-weight: bold;
 }
