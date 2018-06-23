@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>MusicArt</title>
-  <link rel="shortcut icon" href="images/logo.ico">
-  <meta charset="UTF-8">
-  <meta name="description" content="Página de promoción para músicos.">
-  <meta name="keywords" content="bajo,guitarra,bateria,musica,solfeo,aprender">
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <link type="text/css" rel="stylesheet" href="css/style.css">
-
+  <style>.async-hide { opacity: 0 !important} </style>
+  <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+  h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+  (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+  })(window,document.documentElement,'async-hide','dataLayer',4000,
+  {'GTM-M85787D':true});</script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121310407-1"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121310407-1"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    gtag('config', 'UA-121310407-1');
+  gtag('config', 'UA-121310407-1');
   </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-121310407-1', 'auto');
+  ga('require', 'GTM-M85787D');
+  ga('send', 'pageview');
+</script>
+<title>MusicArt</title>
+<link rel="shortcut icon" href="images/logo.ico">
+<meta charset="UTF-8">
+<meta name="description" content="Página de promoción para músicos.">
+<meta name="keywords" content="bajo,guitarra,bateria,musica,solfeo,aprender">
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  </head>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+
+
+
+</head>
 
 <body>
   <header>
@@ -61,6 +77,9 @@
             <p class="caption center-align parrafo-texto">
               Promocionate y comparte tus habilidades con otros músicos. Forma un grupo o encuentra al músico que te falta para llevar a cabo tu proyecto.
             </p>
+            <div class="row center">
+              <a href='/musicos' class="waves-effect waves-light btn amber darken-2">Músicos</a>
+            </div>
           </div>
         </div>
 
@@ -70,9 +89,11 @@
           <div class="container">
             <h1 class="center-align">¿Ya tienes un grupo?</h1>
             <p class="caption center-align parrafo-texto">
-              En MusicArt podrás disfrutar de la música como nunca. Promocionate a ti o a tu grupo, encuentra gente con la que compartir tus gusto, enterate de todos los eventos musicales de la zona.
-              ¿A qué esperas?
+              Comparte conciertos, vídeos, o simplemente promocionate para que más gente te conozca. En esta sección también podrás anunciar si necesitas un músico en concreto.
             </p>
+            <div class="row center">
+              <a href='/grupos' class="waves-effect waves-light btn amber darken-2">Grupos</a>
+            </div>
           </div>
         </div>
 
@@ -80,11 +101,14 @@
 
         <div id="eventos" class="section scrollspy">
           <div class="container">
-            <h1 class="center-align">¡No te pierdas ningún evento!</h1>
+            <h1 class="center-align">¡Ayúdanos a mejorar!</h1>
             <p class="caption center-align parrafo-texto">
-              En MusicArt podrás disfrutar de la música como nunca. Promocionate a ti o a tu grupo, encuentra gente con la que compartir tus gusto, enterate de todos los eventos musicales de la zona.
-              ¿A qué esperas?
+              Visite la sección de opiniones y cuéntenos que le ha parecido MusicArt, qué mejoras haría, que matendría...
+              Su opinión es muy valiosa para ayudarnos a crecer y mejorar.
             </p>
+            <div class="row center">
+              <a href='/opiniones' class="waves-effect waves-light btn amber darken-2">Opiniones</a>
+            </div>
           </div>
         </div>
       </div>
@@ -94,7 +118,7 @@
           <li><a href="#introduction">Introducción</a></li>
           <li><a href="#musicos">Músicos</a></li>
           <li><a href="#grupos">Grupos</a></li>
-          <li><a href="#eventos">Eventos</a></li>
+          <li><a href="#eventos">Opiniones</a></li>
         </ul>
       </div>
     </div>
