@@ -37,7 +37,7 @@ function singIn(req,res,next) {
 function singUp(req,res,next) {
   db.oneOrNone('select max(id) from usuario')
   .then(function(data){
-    if(data!=null){
+    if(data.max!=null){
       console.log(data.max);
       var nuevo_id = parseInt(data.max);
     }
@@ -64,7 +64,7 @@ function singUp(req,res,next) {
 function crearMusico(req,res,next) {
   db.oneOrNone('select max(id) from musicos')
     .then(function(data){
-      if(data!=null){
+      if(data.max!=null){
         console.log(data.max);
         var nuevo_id = parseInt(data.max);
       }
@@ -90,7 +90,7 @@ function crearMusico(req,res,next) {
 function crearGrupo(req,res,next) {
   db.oneOrNone('select max(id) from grupos')
     .then(function(data){
-      if(data!=null){
+      if(data.max!=null){
         console.log(data.max);
         var nuevo_id = parseInt(data.max);
       }
@@ -104,7 +104,7 @@ function crearGrupo(req,res,next) {
         res.status(200)
         .json({
           status: 'success',
-          message: 'Usuario creado'
+          message: 'Grupo creado'
         });
       });
     })
