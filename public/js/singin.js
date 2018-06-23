@@ -7,7 +7,7 @@ $("document").ready(function() {
       if(data.codigo==1){
         $('#merror').empty()
         $('#merror').append(`
-            <p class="mensaje-error">El nombre de usuario y la contraseña que ingresaste no coinciden con nuestros registros. Por favor, revisa e inténtalo de nuevo.</p>
+            <p role="alert" class="mensaje-error">El nombre de usuario y la contraseña que ingresaste no coinciden con nuestros registros. Por favor, revisa e inténtalo de nuevo.</p>
           `)
       }
       else{
