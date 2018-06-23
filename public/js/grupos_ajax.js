@@ -35,7 +35,7 @@ $("document").ready(function() {
               <li><a href="/musicos">Músicos</a></li>
               <li><a class="black" href="/grupos">Grupos</a></li>
               <li><a href="/opiniones">Opiniones</a></li>
-              <li><a id="salir" href="#">Salir</a></li>
+              <li><a class="salir" href="#">Salir</a></li>
             </ul>
           </div>
         </nav>
@@ -43,7 +43,7 @@ $("document").ready(function() {
           <li><a href="/musicos">Músicos</a></li>
           <li><a href="/grupos">Grupos</a></li>
           <li><a href="/opiniones">Opiniones</a></li>
-          <li><a id="salir" href="#">Salir</a></li>
+          <li><a class="salir" href="#">Salir</a></li>
         </ul>`)
         $('#zona-superior').append(`<div class="row center">
           <a href='/anunciarGrupo' class="waves-effect waves-light btn amber darken-2">Crear anuncio</a>

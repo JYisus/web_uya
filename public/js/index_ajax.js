@@ -34,7 +34,7 @@ $("document").ready(function() {
             <li><a href="/musicos">Músicos</a></li>
             <li><a href="/grupos">Grupos</a></li>
             <li><a href="/opiniones">Opiniones</a></li>
-            <li><a id="salir" href="#">Salir</a></li>
+            <li><a class="salir" href="#">Salir</a></li>
           </ul>
         </div>
       </nav>
@@ -43,7 +43,17 @@ $("document").ready(function() {
         <li><a href="/musicos">Músicos</a></li>
         <li><a href="/grupos">Grupos</a></li>
         <li><a href="/opiniones">Opiniones</a></li>
-        <li><a id="salir" href="#">Salir</a></li>
+        <li><a class="salir" href="#">Salir</a></li>
       </ul>`)
   }
+
+  $('.carousel').carousel();
+  $(document).bind('keyup', function(e) {
+    if (e.keyCode==39) {
+      $('.carousel').carousel('next');
+    }
+    else if(e.keyCode==37){
+      $('.carousel').carousel('prev');
+    }
+  });
 });
