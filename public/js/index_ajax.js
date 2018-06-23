@@ -6,7 +6,7 @@ $("document").ready(function() {
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="/musicos">Músicos</a></li>
-          <li><a href="#">Grupos</a></li>
+          <li><a href="/grupos">Grupos</a></li>
           <li><a href="#">Eventos</a></li>
           <li><a href="/login">Iniciar sesión</a></li>
           <li><a href="/registro">Registrarse</a></li>
@@ -15,7 +15,7 @@ $("document").ready(function() {
     </nav>
     <ul class="sidenav" id="mobile-demo">
       <li><a href="/musicos">Músicos</a></li>
-      <li><a href="#">Grupos</a></li>
+      <li><a href="/grupos">Grupos</a></li>
       <li><a href="#">Eventos</a></li>
       <li><a href="/login">Iniciar sesión</a></li>
       <li><a href="/registro">Registrarse</a></li>
@@ -32,7 +32,7 @@ $("document").ready(function() {
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="/musicos">Músicos</a></li>
-            <li><a href="#">Grupos</a></li>
+            <li><a href="/grupos">Grupos</a></li>
             <li><a href="#">Eventos</a></li>
             <li><a id="salir" href="#">Salir</a></li>
           </ul>
@@ -41,7 +41,7 @@ $("document").ready(function() {
       <!--Barra de navegación resolución pequeña-->
       <ul class="sidenav" id="mobile-demo">
         <li><a href="/musicos">Músicos</a></li>
-        <li><a href="#">Grupos</a></li>
+        <li><a href="/grupos">Grupos</a></li>
         <li><a href="#">Eventos</a></li>
         <li><a id="salir" href="#">Salir</a></li>
       </ul>`)

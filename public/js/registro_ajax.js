@@ -19,4 +19,22 @@ $("document").ready(function() {
     $('#respuesta').empty()
   }
 })
+$("#registro").submit(function(event){
+  event.preventDefault();
+  //let data = $('#registro').serializeArray()
+  //let formData = { 'username':data[0].value, 'password':data[1].value}
+
+  $.post('/usuario',$('#username').serialize(),function(data){
+    console.log(data)
+    if(data.data==null){
+      $.post('/singup',$("#registro").serialize(),data2=>{
+        document.location.href = '/login';
+      });
+    }
+    else {
+      $('#errores').empty()
+      $('#errores').append('Datos introducidos no válidos. Revise los campos con mensaje de error.<br>')
+    }
+  });
+})
 });

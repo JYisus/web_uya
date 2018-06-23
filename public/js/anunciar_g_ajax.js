@@ -5,8 +5,8 @@ $("document").ready(function() {
             <a href="/" class="brand-logo">MusicArt</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a class="black" href="/musicos">Músicos</a></li>
-              <li><a href="/grupos">Grupos</a></li>
+              <li><a href="/musicos">Músicos</a></li>
+              <li><a class="black" href="/grupos">Grupos</a></li>
               <li><a href="#">Eventos</a></li>
               <li><a href="/login">Iniciar sesión</a></li>
               <li><a href="/registro">Registrarse</a></li>
@@ -28,8 +28,8 @@ $("document").ready(function() {
             <a href="/" class="brand-logo">MusicArt</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a class="black" href="/musicos">Músicos</a></li>
-              <li><a href="/grupos">Grupos</a></li>
+              <li><a href="/musicos">Músicos</a></li>
+              <li><a class="black" href="/grupos">Grupos</a></li>
               <li><a href="#">Eventos</a></li>
               <li><a id="salir" href="#">Salir</a></li>
             </ul>
@@ -43,13 +43,13 @@ $("document").ready(function() {
         </ul>`)
   }
 
-    $("#anunciar-musico").submit(function(event){
+    $("#anunciar-grupo").submit(function(event){
       event.preventDefault();
-      let data = $('#anunciar-musico').serializeArray()
-      let formData = { username:localStorage.username, instrumento:$("#instrumento").val(), lugar:$("#lugar").val(), anuncio:$("#anuncio").val()}
+      let data = $('#anunciar-grupo').serializeArray()
+      let formData = { grupo:$("#grupo").val(), genero:$("#genero").val(), lugar:$("#lugar").val(), anuncio:$("#anuncio").val()}
       console.log(formData)
-      $.post('/musicos',formData,data=>{
-          document.location.href = '/musicos';
+      $.post('/grupos',formData,data=>{
+          document.location.href = '/grupos';
       });
     });
 });

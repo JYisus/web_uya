@@ -47,7 +47,7 @@
             		<span class="card-title">Regístrate en MusicArt</span>
          		</div>
             <div class="card-content">
-               <form method="POST" action="/singup">
+               <form id="registro" method="POST" action="">
 
                     <div class="input-field">
                        <label for="name">Nombre</label>
@@ -72,6 +72,8 @@
                        <label for="password">Contraseña</label>
                        <input type="password" name="password" id="password" required>
                     </div>
+                    <span id="errores" class="mensaje-error"></span>
+                    <br>
                     <div class="row center">
                       <button type="submit" value="registrarse" class="btn-large amber darken-4">Registrarse</button>
                     </div>

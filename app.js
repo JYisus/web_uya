@@ -14,11 +14,17 @@ app.get('/login',(req,res,next)=>{
 app.get('/anunciarMusico',(req,res,next)=>{
 	res.sendFile(__dirname +'/public/crear_anuncio_musicos.html');
 })
+app.get('/anunciarGrupo',(req,res,next)=>{
+	res.sendFile(__dirname +'/public/crear_anuncio_grupo.html');
+})
 app.get('/registro',(req,res,next)=>{
 	res.sendFile(__dirname +'/public/registro.html');
 })
 app.get('/musicos',(req,res,next)=>{
 	res.sendFile(__dirname +'/public/musicos.html');
+})
+app.get('/grupos',(req,res,next)=>{
+	res.sendFile(__dirname +'/public/grupos.html');
 })
 
 module.exports = app;

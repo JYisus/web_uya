@@ -87,8 +87,35 @@ function crearMusico(req,res,next) {
     });
 }
 
+function crearGrupo(req,res,next) {
+  db.oneOrNone('select max(id) from grupos')
+    .then(function(data){
+      if(data!=null){
+        console.log(data.max);
+        var nuevo_id = parseInt(data.max);
+      }
+      else{
+        var nuevo_id = 0;
+      }
+      var nuevoAnuncio = req.body;
+      nuevoAnuncio.id = nuevo_id+1
+      db.none('insert into grupos(grupo,anuncio,genero,lugar,id)' + 'values(${grupo},${anuncio},${genero},${lugar},${id})',nuevoAnuncio)
+      .then(function(){
+        res.status(200)
+        .json({
+          status: 'success',
+          message: 'Usuario creado'
+        });
+      });
+    })
+    .catch(function(err){
+      return next(err);
+    });
+}
+
 module.exports = {
   singIn,
   singUp,
-  crearMusico
+  crearMusico,
+  crearGrupo
 }

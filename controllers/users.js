@@ -146,6 +146,21 @@ function createUser(req,res,next) {
 
 }
 
+function getGrupos(req,res,next) {
+  db.any('select * from grupos')
+    .then(function(data){
+    res.status(200)
+      .json({
+        status: 'success',
+        data: data,
+        message: 'Obtenidos todos los datos'
+      });
+  })
+  .catch(function(err){
+    return next(err);
+  });
+}
+
 function getMusicos(req,res,next) {
   db.any('select * from musicos')
     .then(function(data){
@@ -165,5 +180,6 @@ module.exports = {
   getUsers,
   getUser,
   createUser,
-  getMusicos
+  getMusicos,
+  getGrupos
 }

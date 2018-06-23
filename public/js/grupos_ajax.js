@@ -5,8 +5,8 @@ $("document").ready(function() {
             <a href="/" class="brand-logo">MusicArt</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a class="black" href="/musicos">Músicos</a></li>
-              <li><a href="/grupos">Grupos</a></li>
+              <li><a href="/musicos">Músicos</a></li>
+              <li><a class="black" href="/grupos">Grupos</a></li>
               <li><a href="#">Eventos</a></li>
               <li><a href="/login">Iniciar sesión</a></li>
               <li><a href="/registro">Registrarse</a></li>
@@ -32,8 +32,8 @@ $("document").ready(function() {
             <a href="/" class="brand-logo">MusicArt</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a class="black" href="/musicos">Músicos</a></li>
-              <li><a href="/grupos">Grupos</a></li>
+              <li><a href="/musicos">Músicos</a></li>
+              <li><a class="black" href="/grupos">Grupos</a></li>
               <li><a href="#">Eventos</a></li>
               <li><a id="salir" href="#">Salir</a></li>
             </ul>
@@ -46,23 +46,23 @@ $("document").ready(function() {
           <li><a id="salir" href="#">Salir</a></li>
         </ul>`)
         $('#zona-superior').append(`<div class="row center">
-          <a href='/anunciarMusico' class="waves-effect waves-light btn amber darken-2">Crear anuncio</a>
+          <a href='/anunciarGrupo' class="waves-effect waves-light btn amber darken-2">Crear anuncio</a>
         </div> <br>`)
   }
-  $.get('/musicos/all',(datos)=>{
+  $.get('/grupos/all',(datos)=>{
     console.log(datos.data)
     var res = '';
     (datos.data).forEach (i => {
       console.log(i);
-      $('#anuncios_musicos').append(`
+      $('#anuncios-grupos').append(`
       <li>
         <div class="collapsible-header">
         <ul class="list-inline">
           <li>
-            <i alt="" class="material-icons prefix">person</i><span class="title-element">Usuario: </span>${i['username']}
+            <i alt="" class="material-icons prefix">people</i><span class="title-element">Grupo: </span>${i['grupo']}
           </li>
           <li>
-            <i alt="" class="material-icons prefix">music_note</i><span class="title-element">Intrumento: </span>${i['instrumento']}
+            <i alt="" class="material-icons prefix">music_note</i><span class="title-element">Género: </span>${i['genero']}
           </li>
           <li>
             <i alt="" class="material-icons prefix">map</i><span class="title-element">Lugar: </span>${i['lugar']}
