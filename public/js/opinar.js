@@ -51,7 +51,7 @@ $("document").ready(function() {
             <br>
                 <div class="input-field col s12">
                   <i alt="" class="material-icons prefix">insert_comment</i>
-                  <textarea id="opinion" class="materialize-textarea" data-length="500"></textarea>
+                  <textarea id="opinion" class="materialize-textarea" required data-length="500"></textarea>
                   <label for="opinion">Escriba aquí su opinión...</label>
               </div>
               <div class="center-align">
