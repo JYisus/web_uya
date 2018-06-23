@@ -5,20 +5,20 @@ $("document").ready(function() {
             <a href="/" class="brand-logo">MusicArt</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="/musicos">Músicos</a></li>
-              <li><a href="/grupos">Grupos</a></li>
-              <li><a class="black" href="/opiniones">Opiniones</a></li>
-              <li><a href="/login">Iniciar sesión</a></li>
-              <li><a href="/registro">Registrarse</a></li>
-            </ul>
+				<li><a href="/musicos" role="menuitem" aria-label="Musicos">Músicos</a></li>
+				<li><a href="/grupos" role="menuitem" aria-label="Grupos">Grupos</a></li>
+				<li><a class="black" href="/opiniones" role="menuitem" aria-label="Opiniones">Opiniones</a></li>
+				<li><a href="/login" role="menuitem" aria-label="Iniciar sesion">Iniciar sesión</a></li>
+				<li><a href="/registro" role="menuitem" aria-label="Registrarse">Registrarse</a></li>
+			</ul>
           </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-          <li><a href="/musicos">Músicos</a></li>
-          <li><a href="/grupos">Grupos</a></li>
-          <li><a href="/opiniones">Opiniones</a></li>
-          <li><a href="/login">Iniciar sesión</a></li>
-          <li><a href="/registro">Registrarse</a></li>
+          <li><a href="/musicos" role="menuitem" aria-label="Musicos">Músicos</a></li>
+		  <li><a href="/grupos" role="menuitem" aria-label="Grupos">Grupos</a></li>
+          <li><a href="/opiniones" role="menuitem" aria-label="Opiniones">Opiniones</a></li>
+          <li><a href="/login" role="menuitem" aria-label="Iniciar sesión">Iniciar sesión</a></li>
+          <li><a href="/registro" role="menuitem" aria-label="Registrarse">Registrarse</a></li>
         </ul>`)
         $('#zona-superior').append(`<div class="row center">
         <p class="caption center-align parrafo-texto">Inicia sesión o registrate para opinar.</p>
@@ -32,18 +32,18 @@ $("document").ready(function() {
             <a href="/" class="brand-logo">MusicArt</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="/musicos">Músicos</a></li>
-              <li><a href="/grupos">Grupos</a></li>
-              <li><a class="black" href="/opiniones">Opiniones</a></li>
-              <li><a class="salir" href="#">Salir</a></li>
+              <li><a href="/musicos" role="menuitem" aria-label="Musicos">Músicos</a></li>
+              <li><a href="/grupos" role="menuitem" aria-label="Grupos">Grupos</a></li>
+              <li><a class="black" href="/opiniones" role="menuitem" aria-label="Opiniones">Opiniones</a></li>
+              <li><a class="salir" href="#" role="menuitem" aria-label="Salir">Salir</a></li>
             </ul>
           </div>
         </nav>
         <ul class="sidenav" id="mobile-demo">
-          <li><a href="/musicos">Músicos</a></li>
-          <li><a href="/grupos">Grupos</a></li>
-          <li><a href="/opiniones">Opiniones</a></li>
-          <li><a class="salir" href="#">Salir</a></li>
+          <li><a href="/musicos" role="menuitem" aria-label="Musicos">Músicos</a></li>
+          <li><a href="/grupos" role="menuitem" aria-label="Grupos">Grupos</a></li>
+          <li><a href="/opiniones" role="menuitem" aria-label="Opiniones">Opiniones</a></li>
+          <li><a class="salir" href="#" role="menuitem" aria-label="Salir">Salir</a></li>
         </ul>`)
         $('#fzone').append(`
           <form class="white col s12 m8 offset-m2" id="opinar" method="post" action="">
