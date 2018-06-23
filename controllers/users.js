@@ -95,7 +95,6 @@ function getUsers(req,res,next) {
 
 function getUser(req,res,next) {
   var nombreUsuario = req.body.username;
-  console.log(nombreUsuario)
 	db.oneOrNone('select * from usuario where username = $1',nombreUsuario)
     .then(function(data){
     if(data==null) {
@@ -123,7 +122,6 @@ function createUser(req,res,next) {
   db.oneOrNone('select max(id) from usuario')
   .then(function(data){
     if(data!=null){
-      console.log(data.max);
       var nuevo_id = parseInt(data.max);
     }
     else
@@ -176,10 +174,27 @@ function getMusicos(req,res,next) {
   });
 }
 
+function getOpiniones(req,res,next) {
+  db.any('select * from opiniones')
+    .then(function(data){
+    res.status(200)
+      .json({
+        status: 'success',
+        data: data,
+        message: 'Obtenidos todos los datos'
+      });
+  })
+  .catch(function(err){
+    return next(err);
+  });
+}
+
+
 module.exports = {
   getUsers,
   getUser,
   createUser,
   getMusicos,
-  getGrupos
+  getGrupos,
+  getOpiniones
 }

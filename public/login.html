@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <title>MusicArt</title>
+  <title>MusicArt - Iniciar sesión</title>
   <link rel="shortcut icon" href="images/logo.ico">
   <meta charset="UTF-8">
   <meta name="description" content="Página de promoción para músicos.">
@@ -25,8 +25,8 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="/musicos">Músicos</a></li>
-          <li><a href="#">Grupos</a></li>
-          <li><a href="#">Eventos</a></li>
+          <li><a href="/grupos">Grupos</a></li>
+          <li><a href="/opiniones">Opiniones</a></li>
           <li><a class="black" href="/login">Iniciar sesión</a></li>
           <li><a href="/registro">Registrarse</a></li>
         </ul>
@@ -35,8 +35,8 @@
     <!--Barra de navegación resolución pequeña-->
     <ul class="sidenav" id="mobile-demo">
       <li><a href="/musicos">Músicos</a></li>
-      <li><a href="#">Grupos</a></li>
-      <li><a href="#">Eventos</a></li>
+      <li><a href="/grupos">Grupos</a></li>
+      <li><a href="/opiniones">Opiniones</a></li>
       <li><a href="/login">Iniciar sesión</a></li>
       <li><a href="/registro">Registrarse</a></li>
     </ul>
@@ -49,6 +49,8 @@
             <span class="card-title">Iniciar sesión en MusicArt</span>
           </div>
           <div id="zona-formulario" class="card-content">
+            <div id="merror" class="row center-align">
+            </div>
             <form id="loguearse" method="post" action="">
               <div class="input-field">
                 <label for="username">Nombre de usuario</label>

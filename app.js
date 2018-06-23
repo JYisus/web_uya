@@ -27,4 +27,8 @@ app.get('/grupos',(req,res,next)=>{
 	res.sendFile(__dirname +'/public/grupos.html');
 })
 
+app.get('/opiniones',(req,res,next)=>{
+	res.sendFile(__dirname +'/public/opiniones.html');
+})
+
 module.exports = app;

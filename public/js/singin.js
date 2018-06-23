@@ -5,12 +5,10 @@ $("document").ready(function() {
     let formData = { 'username':data[0].value, 'password':data[1].value}
     $.post('/singin',formData,data=>{
       if(data.codigo==1){
-        $('#zona-formulario').prepend(`
-          <div class="row center-align">
+        $('#merror').empty()
+        $('#merror').append(`
             <p class="mensaje-error">El nombre de usuario y la contraseña que ingresaste no coinciden con nuestros registros. Por favor, revisa e inténtalo de nuevo.</p>
-          </div>
           `)
-        console.log('No válido')
       }
       else{
       localStorage.setItem('token',data.token)

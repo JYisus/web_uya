@@ -16,7 +16,9 @@ api.post('/singin', authCtrl.singIn);
 api.post('/singup', authCtrl.singUp);
 api.post('/musicos', authCtrl.crearMusico);
 api.post('/grupos', authCtrl.crearGrupo);
+api.post('/opiniones', authCtrl.crearOpinion);
 api.get('/grupos/all', userCtrl.getGrupos);
 api.get('/musicos/all',userCtrl.getMusicos);
+api.get('/opiniones/all',userCtrl.getOpiniones);
 
 module.exports = api;

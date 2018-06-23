@@ -2,6 +2,7 @@
 var promise = require('bluebird');
 var options = { promiseLib:promise };
 var pgp = require('pg-promise')(options);
+var bcrypt = require('bcrypt-nodejs');
 const cn = {
     host: 'localhost',
     port: 5432,
@@ -15,10 +16,11 @@ var db = pgp(connectionString);
 const service = require('../services/token.js');
 
 function singIn(req,res,next) {
-  db.oneOrNone('select * from usuario where username=${username} and password=${password}',req.body)
+  let usuario = req.body
+  db.oneOrNone('select * from usuario where username=${username}',usuario)
   .then((data)=>{
-    if(data!=null){
-      req.user = data;
+    if((data!=null)&& bcrypt.compareSync(usuario.password,data.password)){
+      req.user = data.password;
       res.status(200).send({
         message: 'Te has logueado correctamente',
         token: service.createToken(data)
@@ -38,14 +40,14 @@ function singUp(req,res,next) {
   db.oneOrNone('select max(id) from usuario')
   .then(function(data){
     if(data.max!=null){
-      console.log(data.max);
       var nuevo_id = parseInt(data.max);
     }
     else
       var nuevo_id = 0;
 
-      console.log(nuevo_id);
       var nuevoUsuario = req.body;
+      var hashPassword = bcrypt.hashSync(nuevoUsuario.password);
+      nuevoUsuario.password = hashPassword
       nuevoUsuario.id = nuevo_id+1
     	db.none('insert into usuario(nombre,apellido,username,password,email,id)' + 'values(${name},${surname},${username},${password},${email},${id})',nuevoUsuario)
     	.then(function(){
@@ -65,7 +67,6 @@ function crearMusico(req,res,next) {
   db.oneOrNone('select max(id) from musicos')
     .then(function(data){
       if(data.max!=null){
-        console.log(data.max);
         var nuevo_id = parseInt(data.max);
       }
       else{
@@ -91,7 +92,6 @@ function crearGrupo(req,res,next) {
   db.oneOrNone('select max(id) from grupos')
     .then(function(data){
       if(data.max!=null){
-        console.log(data.max);
         var nuevo_id = parseInt(data.max);
       }
       else{
@@ -113,9 +113,35 @@ function crearGrupo(req,res,next) {
     });
 }
 
+function crearOpinion(req,res,next) {
+  db.oneOrNone('select max(id) from opiniones')
+    .then(function(data){
+      if(data.max!=null){
+        var nuevo_id = parseInt(data.max);
+      }
+      else{
+        var nuevo_id = 0;
+      }
+      var nuevaOpinion = req.body;
+      nuevaOpinion.id = nuevo_id+1
+      db.none('insert into opiniones(username,opinion,id)' + 'values(${username},${opinion},${id})',nuevaOpinion)
+      .then(function(){
+        res.status(200)
+        .json({
+          status: 'success',
+          message: 'Opinión creado'
+        });
+      });
+    })
+    .catch(function(err){
+      return next(err);
+    });
+}
+
 module.exports = {
   singIn,
   singUp,
   crearMusico,
-  crearGrupo
+  crearGrupo,
+  crearOpinion
 }

@@ -7,7 +7,7 @@ $("document").ready(function() {
             <ul class="right hide-on-med-and-down">
               <li><a href="/musicos">Músicos</a></li>
               <li><a class="black" href="/grupos">Grupos</a></li>
-              <li><a href="#">Eventos</a></li>
+              <li><a href="/opiniones">Opiniones</a></li>
               <li><a href="/login">Iniciar sesión</a></li>
               <li><a href="/registro">Registrarse</a></li>
             </ul>
@@ -16,7 +16,7 @@ $("document").ready(function() {
         <ul class="sidenav" id="mobile-demo">
           <li><a href="/musicos">Músicos</a></li>
           <li><a href="/grupos">Grupos</a></li>
-          <li><a href="#">Eventos</a></li>
+          <li><a href="/opiniones">Opiniones</a></li>
           <li><a href="/login">Iniciar sesión</a></li>
           <li><a href="/registro">Registrarse</a></li>
         </ul>`)
@@ -30,7 +30,7 @@ $("document").ready(function() {
             <ul class="right hide-on-med-and-down">
               <li><a href="/musicos">Músicos</a></li>
               <li><a class="black" href="/grupos">Grupos</a></li>
-              <li><a href="#">Eventos</a></li>
+              <li><a href="/opiniones">Opiniones</a></li>
               <li><a id="salir" href="#">Salir</a></li>
             </ul>
           </div>
@@ -38,7 +38,7 @@ $("document").ready(function() {
         <ul class="sidenav" id="mobile-demo">
           <li><a href="/musicos">Músicos</a></li>
           <li><a href="/grupos">Grupos</a></li>
-          <li><a href="#">Eventos</a></li>
+          <li><a href="/opiniones">Opiniones</a></li>
           <li><a id="salir" href="#">Salir</a></li>
         </ul>`)
   }
@@ -47,7 +47,6 @@ $("document").ready(function() {
       event.preventDefault();
       let data = $('#anunciar-grupo').serializeArray()
       let formData = { grupo:$("#grupo").val(), genero:$("#genero").val(), lugar:$("#lugar").val(), anuncio:$("#anuncio").val()}
-      console.log(formData)
       $.post('/grupos',formData,data=>{
           document.location.href = '/grupos';
       });

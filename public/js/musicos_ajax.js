@@ -7,7 +7,7 @@ $("document").ready(function() {
             <ul class="right hide-on-med-and-down">
               <li><a class="black" href="/musicos">Músicos</a></li>
               <li><a href="/grupos">Grupos</a></li>
-              <li><a href="#">Eventos</a></li>
+              <li><a href="/opiniones">Opiniones</a></li>
               <li><a href="/login">Iniciar sesión</a></li>
               <li><a href="/registro">Registrarse</a></li>
             </ul>
@@ -16,7 +16,7 @@ $("document").ready(function() {
         <ul class="sidenav" id="mobile-demo">
           <li><a href="/musicos">Músicos</a></li>
           <li><a href="/grupos">Grupos</a></li>
-          <li><a href="#">Eventos</a></li>
+          <li><a href="/opiniones">Opiniones</a></li>
           <li><a href="/login">Iniciar sesión</a></li>
           <li><a href="/registro">Registrarse</a></li>
         </ul>`)
@@ -34,7 +34,7 @@ $("document").ready(function() {
             <ul class="right hide-on-med-and-down">
               <li><a class="black" href="/musicos">Músicos</a></li>
               <li><a href="/grupos">Grupos</a></li>
-              <li><a href="#">Eventos</a></li>
+              <li><a href="/opiniones">Opiniones</a></li>
               <li><a id="salir" href="#">Salir</a></li>
             </ul>
           </div>
@@ -42,7 +42,7 @@ $("document").ready(function() {
         <ul class="sidenav" id="mobile-demo">
           <li><a href="/musicos">Músicos</a></li>
           <li><a href="/grupos">Grupos</a></li>
-          <li><a href="#">Eventos</a></li>
+          <li><a href="/opiniones">Opiniones</a></li>
           <li><a id="salir" href="#">Salir</a></li>
         </ul>`)
         $('#zona-superior').append(`<div class="row center">
@@ -50,10 +50,8 @@ $("document").ready(function() {
         </div> <br>`)
   }
   $.get('/musicos/all',(datos)=>{
-    console.log(datos.data)
     var res = '';
     (datos.data).forEach (i => {
-      console.log(i);
       $('#anuncios_musicos').append(`
       <li>
         <div class="collapsible-header">
