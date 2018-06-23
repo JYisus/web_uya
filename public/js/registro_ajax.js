@@ -5,11 +5,11 @@ $("document").ready(function() {
       $('#respuesta').empty()
       if (data.data!=null)
       {
-        $('#respuesta').append(`<span id="error" class="mensaje-error">El usuario ya existe</span>`)
+        $('#respuesta').append(`<span role="alert" id="error" class="mensaje-error">El usuario ya existe</span>`)
       }
       else {
         $('#respuesta').empty()
-        $('#respuesta').append(`<span class="mensaje-valido">El nombre de usuario está disponible</span>`)
+        $('#respuesta').append(`<span role="alert" class="mensaje-valido">El nombre de usuario está disponible</span>`)
       }
     })
   }
