@@ -35,7 +35,7 @@ $("document").ready(function() {
               <li><a href="/musicos">Músicos</a></li>
               <li><a href="/grupos">Grupos</a></li>
               <li><a class="black" href="/opiniones">Opiniones</a></li>
-              <li><a id="salir" href="#">Salir</a></li>
+              <li><a class="salir" href="#">Salir</a></li>
             </ul>
           </div>
         </nav>
@@ -43,7 +43,7 @@ $("document").ready(function() {
           <li><a href="/musicos">Músicos</a></li>
           <li><a href="/grupos">Grupos</a></li>
           <li><a href="/opiniones">Opiniones</a></li>
-          <li><a id="salir" href="#">Salir</a></li>
+          <li><a class="salir" href="#">Salir</a></li>
         </ul>`)
         $('#fzone').append(`
           <form class="white col s12 m8 offset-m2" id="opinar" method="post" action="">
@@ -51,7 +51,7 @@ $("document").ready(function() {
             <br>
                 <div class="input-field col s12">
                   <i alt="" class="material-icons prefix">insert_comment</i>
-                  <textarea id="opinion" class="materialize-textarea" required data-length="500"></textarea>
+                  <textarea id="opinion" class="materialize-textarea" data-length="500" required></textarea>
                   <label for="opinion">Escriba aquí su opinión...</label>
               </div>
               <div class="center-align">
